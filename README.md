@@ -24,7 +24,7 @@ for compliance with Cyber Essentials Plus (as detailed
 |Compliant by default | D
 |Verified | V
 |Installed/Configured | C
-|Planned | P
+|Planned | [empty cell]
 |Not Planned | NP
 
 Ideally we should be able to fill the whole table with V or C.
