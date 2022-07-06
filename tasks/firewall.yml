@@ -1,0 +1,11 @@
+- name: Enable Firewall Ubuntu
+  community.general.ufw:
+    state: enabled
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Enable Firewall Fedora  
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+  when: ansible_facts['distribution'] == "Fedora"

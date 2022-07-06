@@ -1,0 +1,5 @@
+- name: Made Tech Linux Workstation
+  hosts: all
+  become: true
+  tasks:  
+    - include: "tasks/firewall.yml"
