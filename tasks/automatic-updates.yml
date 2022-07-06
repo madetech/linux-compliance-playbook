@@ -1,0 +1,25 @@
+- name: Install Automatic Updates Ubuntu
+  apt:
+    name: unattended-upgrades
+    state: present
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Configure Automatic Updates Ubuntu
+  systemd:
+    name: unattended-upgrades
+    enabled: yes
+    state: started
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Install Automatic Updates Fedora
+  dnf:
+    name: dnf-automatic
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Configure Automatic Updates Fedora
+  systemd:
+    name: dnf-automatic.timer
+    enabled: yes
+    state: started
+  when: ansible_facts['distribution'] == "Fedora"
