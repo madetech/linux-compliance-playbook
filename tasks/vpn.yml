@@ -1,0 +1,31 @@
+- name: Installl VPN Protocol Ubuntu 22.04
+  apt:
+    name: 
+      - network-manager-l2tp  
+      - network-manager-l2tp-gnome
+    state: present
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Installl VPN Protocol Fedora
+  dnf:
+    name: 
+      - NetworkManager-l2tp  
+      - NetworkManager-l2tp-gnome
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Create Config for NetworkManager
+  ansible.builtin.template:
+    src: templates/MadeTechVPN.conf.j2
+    dest: /tmp/MadeTechVPN.conf
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Import Config to NetworkManager
+  ansible.builtin.shell:  nmcli connection import type l2tp file /tmp/MadeTechVPN.conf
+
+
+- name: Add ipsec-psk
+  ansible.builtin.shell: nmcli connection modify MadeTechVPN +vpn.data ipsec-psk={{ ipsec_psk }}
+

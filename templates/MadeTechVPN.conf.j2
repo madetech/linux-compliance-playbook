@@ -1,0 +1,25 @@
+[connection]
+id=MadeTechVPN
+type=vpn
+autoconnect=false
+
+[vpn]
+gateway=madetechvpn.uksouth.cloudapp.azure.com
+ipsec-enabled=true
+mru=1400
+mtu=1400
+password-flags=1
+refuse-chap=true
+refuse-eap=true
+refuse-mschap=true
+refuse-pap=true
+require-mppe=true
+user={{ vpn_user }}
+service-type=org.freedesktop.NetworkManager.l2tp
+
+[ip4]
+method=auto
+
+[ip6]
+addr-gen-mode=stable-privacy
+method=auto
