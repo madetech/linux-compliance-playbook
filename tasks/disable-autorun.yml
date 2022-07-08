@@ -1,0 +1,7 @@
+- name: Disable Autorun & Automount Gnome
+  become: false
+  ansible.builtin.command: "{{ item }}"
+  with_items: 
+    - "gsettings set org.gnome.desktop.media-handling automount false"
+    - "gsettings set org.gnome.desktop.media-handling automount-open false"
+    - "gsettings set org.gnome.desktop.media-handling autorun-never false"
