@@ -4,7 +4,7 @@
   vars_files:
     - vars/main.yml
   tasks:  
-    # - include: "tasks/encryption.yml"
+    - include: "tasks/disk-encryption.yml"
     - include: "tasks/automatic-updates.yml"
     # - include: "tasks/password-policy.yml"
     # - include: "tasks/account-lockout.yml"
