@@ -19,15 +19,15 @@ for compliance with Cyber Essentials Plus (as detailed
 | Antivirus
 | DriveStrike
 
-|Level | Code
-|-|-
-|Compliant by default | D
-|Verified | V
-|Installed/Configured | C
-|Planned | [empty cell]
-|Not Planned | NP
+|Level | Description | Code
+|-|-|-
+|Compliant by default | This item just needs you to not turn it off during install | D
+|Verified | This item is verified to be compliant by the Ansible playbook | V
+|Installed/Configured | This item is actually installed or configured by the Ansible playbook | C
+|Planned | We plan to do this | [empty cell]
+|Not Planned | We have decided this is too much trouble for now | NP
 
-Ideally we should be able to fill the whole table with V or C.
+Ideally we should be able to fill the whole table with `VC`.
 
 Practically : we presently have less than 20 Linux users. It would be best to
 identify the most time-consuming and error prone aspects of the setup required,
@@ -63,8 +63,4 @@ Fixing this would be nice.
 
 ### 4. Antivirus
 
-Setting up ClamAV in the desired configuration is fiddly and requires lots of
-editing system configs.
-
-MS Defender has been found to hit performance a *lot less* than ClamAV with full
-coverage of your `/home` folder. Talk to Adrian about trying this out.
+Currently : SentinelOne
